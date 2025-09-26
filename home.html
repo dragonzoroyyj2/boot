@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h2>Welcome [[${username}]]!</h2>
+
+<!-- JWT 토큰을 숨겨서 B 서버로 전달 -->
+<form th:action="@{http://B서버IP:8081/report/view}" method="get">
+    <input type="hidden" name="token" th:value="${jwtToken}" />
+    <button type="submit">📊 레포트 보기</button>
+</form>
+
+</body>
+</html>
